@@ -137,7 +137,7 @@ include_directories (
 )
 
 # Add target library
-add_library ("backtrace" SHARED
+add_library ("backtrace++" SHARED
     ${BACKTRACE_FILE}
     ${FORMAT_FILE}
     ${VIEW_FILE}
@@ -149,13 +149,13 @@ add_library ("backtrace" SHARED
     libbacktrace/sort.c
     libbacktrace/state.c
 )
-set_target_properties (backtrace PROPERTIES
+set_target_properties (backtrace++ PROPERTIES
     COMPILE_FLAGS "${CMAKE_SHARED_LIBRARY_C_FLAGS}"
 )
 
 # Install
-install (FILES "libbacktrace/backtrace.h" "${CMAKE_CURRENT_BINARY_DIR}/backtrace-supported.h" DESTINATION "include/libbacktrace")
-install (TARGETS "backtrace" DESTINATION "lib")
+install (FILES "libbacktrace/backtrace.h" "${CMAKE_CURRENT_BINARY_DIR}/backtrace-supported.h" DESTINATION "include/libbacktrace++")
+install (TARGETS "backtrace++" DESTINATION "lib")
 
 # Tests
 set (ENABLE_LIBBACKTRACE_TEST false CACHE BOOL "Enable libbacktrace testing")
@@ -163,18 +163,18 @@ if (ENABLE_LIBBACKTRACE_TEST)
     enable_testing ()
     add_executable (btest libbacktrace/btest.c)
     set_property (SOURCE libbacktrace/btest.c PROPERTY COMPILE_FLAGS "-g")
-    target_link_libraries (btest backtrace)
+    target_link_libraries (btest backtrace++)
     add_test (test-libbacktrace btest)
     add_executable (stest libbacktrace/stest.c)
     set_property (SOURCE libbacktrace/stest.c PROPERTY COMPILE_FLAGS "-g")
-    target_link_libraries (stest backtrace)
+    target_link_libraries (stest backtrace++)
     add_test (test-libbacktrace-sort stest)
 endif ()
 
 #example
 add_executable (example examples/bt.c)
 set_property (SOURCE examples/bt.c PROPERTY COMPILE_FLAGS "-g")
-target_link_libraries (example backtrace)
+target_link_libraries (example backtrace++)
 
 #packaging
 ADD_SUBDIRECTORY(packaging)
