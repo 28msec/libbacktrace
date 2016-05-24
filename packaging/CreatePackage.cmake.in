@@ -1,5 +1,5 @@
 SET(PPA_VERSION "1.0.0")
-SET(PPA_NAME "libbacktrace")
+SET(PPA_NAME "libbacktrace++")
 SET(PPA_MAINTAINER "Federico Cavalieri <f@28.io>")
 SET(PPA_HOMEPAGE "https://github.com/28msec/libbacktrace")
 
