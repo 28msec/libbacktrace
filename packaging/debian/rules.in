@@ -22,7 +22,7 @@ build-stamp:  builddir/Makefile
 	dh_testdir
 
 	# Add here commands to compile the package.
-	$(MAKE) @PPA_THREADS_SWITCH@ -C builddir
+	$(MAKE) -C builddir
 	# $(MAKE) -C builddir xqdoc sausaxqdoc
 	#docbook-to-man debian/zorba.sgml > zorba.1
 
