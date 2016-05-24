@@ -1,5 +1,5 @@
 Source: @PPA_NAME@
-Section: lib
+Section: libs
 Priority: optional
 Maintainer: @PPA_MAINTAINER@
 Build-Depends: @PPA_BUILD_DEPENDENCIES@
